@@ -13,15 +13,16 @@ git push -u origin [具体位置]
 
 git config --global --unset https.proxy #取消全局代理
 git config --global --get https.proxy   #检查当前代理
-git config --global http.proxy [参数]   #设置当前代理
+git config --global http.proxy [参数]    #设置当前代理
 
 出现的报错
 
-1. 443 SSL
+1. 443 SSL Operation timed out
 先查看一下网络链接，判断是否可以连接到github，
 ping github.com -c [次数]  #尝试链接网站
 curl -I https://github.com #尝试访问网站
 
 2.fatal: unable to access[网址]:Empty reply from server
-先取消全局代理，重新尝试推送，实在不行重新设置当前代理
+先取消全局代理，重新尝试推送，
+如果出现443报错，立即重新设置当前代理。
 
