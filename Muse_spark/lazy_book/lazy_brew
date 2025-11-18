@@ -1,0 +1,5 @@
+brew search []      # homebrew查找安装包
+brew list           # homebrew列表
+brew intsall []     # homebrew安装制定东西
+brew upstall []     # homebrew卸载对应东西
+
