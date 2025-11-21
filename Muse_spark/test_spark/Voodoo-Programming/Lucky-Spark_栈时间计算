@@ -1,0 +1,36 @@
+Voodoo-Programming:Lucky-Spark Formula
+巫毒编程:幸运连连看公式(新手幸运陷阱)
+
+*一个因为看不懂栈瞎写出来的公式
+必须满足的「完美适配条件」
+1.无重复日志:无重复end、无start的end
+2.严格完美嵌套:无交叉、无交替
+3.题目设计刚好让时间差+-1凑对答案
+不得不说这玩意真的适合新手村里的「完美题」
+进程调度算法
+
+例如:
+logs = ["0:start:0","1:start:2","1:end:5","0:end:6"]
+logs = ["0:start:0","0:start:2","0:end:5","0:start:6","0:end:6","0:end:7"]
+logs = ["0:start:0","0:start:2","0:end:5","1:start:6","1:end:6","0:end:7"]
+
+*不得不说这种题目不仅是对新人友好，对这个公式也太友好了。让我们找一点特别的
+logs = ["0:start:0","1:start:2","1:end:5","2:start:6","2:end:8","0:end:10"]
+logs = ["0:start:0","0:start:1","0:end:3"]
+logs = ["0:start:0","1:start:1","0:end:2","1:end:3"]
+
+推理过程:答案->表面特征->试错公式->归属规则
+
+s:start ,e:end , id_last:最新出现的id(右侧日志id), id:前一个id(左侧日志id)
+action配对       公式运算过程       时间分配
+s1 - s2            s2-s1-1           id
+s - e              e-s+1             id_last
+e - s              pass
+e1 - e2            e2-e1+1           id_last
+
+用「相邻日志配对」算时间差，不关心进程状态:
+1.只看相邻两个日志的action: 如 s/s、s/e、e/e、e/s
+2.按照固定公式算时间差
+3.按「左归左、右归右」定归属，不验证过程是否真运行
+
+
