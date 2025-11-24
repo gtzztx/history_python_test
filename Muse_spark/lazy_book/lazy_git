@@ -4,10 +4,14 @@ git config --global user.name "你的用户名"    #设置你的用户名
 git config --global user.email "你的邮箱"     #设置你的邮箱
 git remote add origin [GitHub 仓库地址]       #设置你的仓库地址并让它关联origin
 git remote -v             #详细查看远程仓库的详细信息
-git add [指定文件]        #指定更新对应的文件，全部更新直接 .
+git add [指定文件]        #指定更新对应的文件，全部更新直接 . 
 git commit -m "备注信息"  #提交备注内容
 git push                  #上传远程仓库
 git push -u origin [具体位置]
+git pull                  #将远程仓库里的最新文件拉到本地
+Git log                   #查看之前提交的记录，每条只显示提交的时间、作者、备注信息
+Git diff                  #查看未提交的修改具体区别
+
 
 *git commit --amend --reset-author  #修改这次提交的作者信息
 
